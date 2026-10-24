@@ -811,7 +811,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
   })();
   // ---- form repository: paste your Google Apps Script Web app URL between the quotes ----
   var ENDPOINT='https://script.google.com/macros/s/AKfycbx_S4E12puwobQF4LfPeGxW5zjO4BaNxAyM-M4K5EkQ8df-M9RBtZjtMXnOBIlmHo5Hqg/exec';
-  function record(type,data){if(!ENDPOINT)return;try{data.type=type;data.ts=new Date().toISOString();data.page=location.href;fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}).catch(function(){})}catch(e){}}
+  function record(type,data){if(!ENDPOINT)return;try{data.form=type;data.ts=new Date().toISOString();data.page=location.href;fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}).catch(function(){})}catch(e){}}
   // shared helpers for forms
   function v(id){var el=$('#'+id);return el?el.value.trim():''}
   function waOpen(text){var u='https://wa.me/918948847410?text='+encodeURIComponent(text);var a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
