@@ -810,7 +810,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding
     init();draw();var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(init,200)});
   })();
   // ---- form repository: paste your Google Apps Script Web app URL between the quotes ----
-  var ENDPOINT='';
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbx_S4E12puwobQF4LfPeGxW5zjO4BaNxAyM-M4K5EkQ8df-M9RBtZjtMXnOBIlmHo5Hqg/exec';
   function record(type,data){if(!ENDPOINT)return;try{data.type=type;data.ts=new Date().toISOString();data.page=location.href;fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)}).catch(function(){})}catch(e){}}
   // shared helpers for forms
   function v(id){var el=$('#'+id);return el?el.value.trim():''}
