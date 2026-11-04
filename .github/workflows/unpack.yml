@@ -1,0 +1,23 @@
+name: Unpack incoming bundles
+on:
+  push:
+    paths: ['incoming/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip bundles into the site root
+        run: |
+          shopt -s nullglob
+          for z in incoming/*.zip; do unzip -o -q "$z" -d . && rm -f "$z"; done
+      - name: Commit
+        run: |
+          git config user.name "cw-bot"
+          git config user.email "bot@consultingwallah.com"
+          git add -A
+          git commit -m "Unpack bundle(s)" || echo "nothing to commit"
+          git push
